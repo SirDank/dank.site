@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<video height="100%" width="100%" class="bg_video" autoplay muted loop>
+    <source src="aesthetic_1080.mp4" type="video/mp4">
+    <source src="aesthetic_1080.webm" type="video/webm">
+    <p class="warning">Your browser does not support HTML5 video.</p>
+</video>
+
+<!--
+<div class="bg-audio">
+	<audio controls autoplay loop>
+        <source src="aesthetic_1080.mp3" type="audio/mpeg">
+        <p class="warning">Your browser does not support the audio element.</p>
+    </audio>
+</div>
+
+width: 100%;
+height: 100%;
+
+loop muted autoplay
+
+-->
+
+<!-- CSS -->
+<style>
+.bg_video {
+display: block;
+position: fixed;
+background-position: center center;
+background-repeat: no-repeat;
+background-size: cover;
+-moz-background-size: cover;
+-webkit-background-size: cover;
+-o-background-size: cover;
+margin: 0;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: black;
+overflow: hidden;
+}
+</style>
+
+<script>
+var s = ((window.innerWidth * window.innerHeight) / 1713719.01).toFixed(2);
+document.getElementsByClassName("bg_video").style.Transform = `scale(${s})`;
+</script>
+
+</body>
+</html>
