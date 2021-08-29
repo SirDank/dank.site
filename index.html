@@ -6,15 +6,33 @@
     <title>dank.site</title>
 </head>
 <body>
-    <video class="bg_video" poster="first.jpg" autoplay loop>
-        <source src="aesthetic_1080.mp4" type="video/mp4">
-        <source src="aesthetic_1080.webm" type="video/webm">
+    <video class="bg_video" autoplay loop>
+        <source src="Resources/aesthetic_1080.mp4" type="video/mp4">
+        <source src="Resources/aesthetic_1080.webm" type="video/webm">
         <p class="warning">Your browser does not support HTML5 video.</p>
     </video>
+	
+	<img class="gif">
+	    <source src="Resources/sir.dank.gif">
+		<p class="warning">Your browser does not support HTML5 gif.</p>
+	</img>
 
 <!-- CSS -->
 <style>
 .bg_video {
+position: fixed;
+height: auto;
+width: 100%;
+top: 0;
+left: 0;
+display: block;
+margin: 0 auto;
+background-color: black;
+}
+</style>
+
+<style>
+.gif {
 position: fixed;
 height: auto;
 width: 100%;
