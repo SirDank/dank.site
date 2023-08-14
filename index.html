@@ -1,74 +1,102 @@
 <!DOCTYPE html>
 <html lang="en-US">
-
 <head>
-    <meta charset="UTF-8"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dank.site</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
-</head>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
 
+        .bg_video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .sirdank_gif {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        .buttons-container {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: black;
+            color: hotpink;
+            opacity: 0.6;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .sirdank_gif {
+                object-fit: contain;
+            }
+        }
+
+    </style>
+</head>
 <body>
-    <video class="bg_video" autoplay loop>
-        <source src="Resources/aesthetic_1080.mp4" type="video/mp4">
-        <source src="Resources/aesthetic_1080.webm" type="video/webm">
+    <div class="preloader"></div>
+    <video id="bgVideo" class="bg_video" autoplay loop muted>
+        <source src="Resources/aesthetic_1080.mp4" type="video/mp4" loading="lazy">
+        <source src="Resources/aesthetic_1080.webm" type="video/webm" loading="lazy">
         <p class="warning">Your browser does not support HTML5 video.</p>
     </video>
+    <img class="sirdank_gif" src="Resources/sir.dank.gif" alt="SirDank" loading="lazy">
+    <div class="buttons-container">
+        <a class="button github-button" href="https://github.com/SirDank" target="_blank">
+            <i class="fab fa-github"></i>
+        </a>
+        <button class="button audio-button" id="audioButton" onclick="toggleMute()">
+            🔊
+        </button>
+    </div>
+    <script>
+        const bgVideo = document.getElementById('bgVideo');
+        const audioButton = document.getElementById('audioButton');
 
-    <img class="sirdank_gif" src="Resources/sir.dank.gif" type="image/gif"/>
-
-<!-- CSS -->
-<style>
-.bg_video {
-position: fixed;
-height: auto;
-width: 100%;
-top: 0;
-left: 0;
-display: block;
-margin: 0 auto;
-background-color: black;
-user-select: none;
-pointer-events: none;
-}
-
-.sirdank_gif {
-position: fixed;
-height: auto;
-width: 100%;
-top: 0;
-left: 0;
-display: block;
-margin: 0 auto;
-opacity: 0.3;
-user-select: none;
-pointer-events: none;
-}
-</style>
-
-
-<!--
-display: block;
-background-position: center center;
-background-repeat: no-repeat;
-background-size: cover;
--moz-background-size: cover;
--webkit-background-size: cover;
--o-background-size: cover;
-
-overflow: hidden;
-object-fit: fill;
-
-margin-left: auto;
-margin-right: auto;
-margin: 0;
-
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-transform: scale(1.21);
--->
-
+        function toggleMute() {
+            bgVideo.muted = !bgVideo.muted;
+            if (bgVideo.muted) {
+                audioButton.textContent = '🔊';
+            } else {
+                audioButton.textContent = '🔇';
+            }
+        }
+    </script>
 </body>
 </html>
